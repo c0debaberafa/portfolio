@@ -121,18 +121,18 @@ const WorkExperience = () => {
     const isExpanded = (id: string) => expandedIds.has(id) || hoveredId === id;
 
     return (
-        <section ref={sectionRef} className="py-20 bg-gradient-soft">
-          <div className="container mx-auto px-6">
+        <section ref={sectionRef} className="py-12 md:py-20 bg-gradient-soft">
+          <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center text-white">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 md:mb-16 text-center text-white">
                 Work Experience
               </h2>
               
               <div className="relative">
-                {/* Timeline line */}
-                <div className="absolute left-8 top-8 bottom-8 w-0.5 opacity-40 bg-gray-400"></div>
+                {/* Timeline line - hidden on mobile, visible on desktop */}
+                <div className="hidden md:block absolute left-8 top-8 bottom-8 w-0.5 opacity-40 bg-gray-400"></div>
                 
-                <div className="space-y-8">
+                <div className="space-y-6 md:space-y-8">
                   {experiences.map((exp, index) => (
                     <div
                       key={exp.id}
@@ -153,9 +153,9 @@ const WorkExperience = () => {
                       }}
                       style={{ cursor: 'pointer' }}
                     >
-                      {/* Timeline node */}
+                      {/* Timeline node - hidden on mobile, visible on desktop */}
                       <div
-                        className={`absolute left-6 top-12 w-4 h-4 rounded-full z-10 transition-all duration-300 transition-colors transition-[background] ` +
+                        className={`hidden md:block absolute left-6 top-12 w-4 h-4 rounded-full z-10 transition-all duration-300 transition-colors transition-[background] ` +
                           (expandedIds.has(exp.id)
                             ? 'bg-white'
                             : hoveredId === exp.id
@@ -166,22 +166,22 @@ const WorkExperience = () => {
                       
                       <div
                         ref={el => { cardRefs.current[index] = el; }}
-                        className="ml-16 bg-gradient-card rounded-2xl shadow-soft border border-border/50 transition-all duration-500 delay-150 group/card relative p-8"
+                        className="md:ml-16 bg-gradient-card rounded-2xl shadow-soft border border-border/50 transition-all duration-500 delay-150 group/card relative p-4 md:p-8"
                         style={{ boxShadow: '0 0 0 0 rgba(0,0,0,0)', transition: 'box-shadow 0.5s cubic-bezier(0.4,0,0.2,1) 0.15s' }}
                       >
-                        <div className="flex items-start gap-6">
-                          <div className="flex-shrink-0">
+                        <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-6">
+                          <div className="flex-shrink-0 flex justify-center md:justify-start">
                             <img 
                               src={exp.logo} 
                               alt={`${exp.company} logo`}
-                              className="h-16 w-16 object-contain"
+                              className="h-12 w-12 md:h-16 md:w-16 object-contain"
                             />
                           </div>
                           <div className="flex-grow min-w-0">
                             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
                               <div>
                                 {companyLinks[exp.company] ? (
-                                  <h3 className="text-2xl font-bold text-white flex items-center gap-1">
+                                  <h3 className="text-xl md:text-2xl font-bold text-white flex items-center gap-1">
                                     <a
                                       href={companyLinks[exp.company]}
                                       target="_blank"
@@ -202,15 +202,15 @@ const WorkExperience = () => {
                                     </a>
                                   </h3>
                                 ) : (
-                                  <h3 className="text-2xl font-bold text-white">
+                                  <h3 className="text-xl md:text-2xl font-bold text-white">
                                     {exp.company}
                                   </h3>
                                 )}
-                                <span className="text-base text-gray-300 font-medium mt-1 block">
+                                <span className="text-sm md:text-base text-gray-300 font-medium mt-1 block">
                                   {exp.title}
                                 </span>
                               </div>
-                              <span className="text-sm text-gray-400 bg-neutral-700 px-3 py-1 rounded-full self-start font-mono" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
+                              <span className="text-xs md:text-sm text-gray-400 bg-neutral-700 px-2 md:px-3 py-1 rounded-full self-start font-mono" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
                                 {exp.time}
                               </span>
                             </div>
@@ -236,32 +236,32 @@ const WorkExperience = () => {
                             {/* Tora Clients - always visible for Tora Media */}
                             {exp.company === 'Tora Media' && (
                               <>
-                                <div className="w-full h-px bg-neutral-600/30 my-6"></div>
-                                <div className="mt-6">
-                                <h4 className="text-lg font-semibold text-white mb-4" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
+                                <div className="w-full h-px bg-neutral-600/30 my-4 md:my-6"></div>
+                                <div className="mt-4 md:mt-6">
+                                <h4 className="text-base md:text-lg font-semibold text-white mb-3 md:mb-4" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
                                   Featured Clients
                                 </h4>
-                                <div className="flex flex-row gap-8 items-start">
+                                <div className="flex flex-wrap gap-4 md:gap-8 items-start justify-center md:justify-start">
                                   {toraClients.map((client) => (
-                                    <div key={client.id} className="group/client relative flex flex-col items-start">
+                                    <div key={client.id} className="group/client relative flex flex-col items-center md:items-start">
                                       {/* Logo Container and Social Links */}
-                                      <div className="relative w-24 h-24 md:w-28 md:h-28 mb-2 flex items-center justify-center">
-                                        <div className="w-full h-full bg-black rounded-2xl p-3 flex items-center justify-center transition-all duration-300 group-hover/client:shadow-medium relative">
+                                      <div className="relative w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 mb-2 flex items-center justify-center">
+                                        <div className="w-full h-full bg-black rounded-2xl p-2 md:p-3 flex items-center justify-center transition-all duration-300 group-hover/client:shadow-medium relative">
                                           <img 
                                             src={client.logo} 
                                             alt={`${client.name} logo`} 
                                             className="w-full h-full object-contain transition-all duration-300 group-hover/client:opacity-50" 
                                           />
                                           {/* Social Links - overlay on the logo, only on hover */}
-                                          <div className="absolute inset-0 flex items-center justify-center gap-2 opacity-0 group-hover/client:opacity-100 transition-opacity duration-300">
+                                          <div className="absolute inset-0 flex items-center justify-center gap-1 md:gap-2 opacity-0 group-hover/client:opacity-100 transition-opacity duration-300">
                                             <a
                                               href={client.url}
                                               target="_blank"
                                               rel="noopener noreferrer"
-                                              className="p-2 rounded-full bg-black/80 hover:bg-neutral-800 transition-all duration-300 group/link"
+                                              className="p-1.5 md:p-2 rounded-full bg-black/80 hover:bg-neutral-800 transition-all duration-300 group/link"
                                             >
                                               <svg
-                                                className="w-4 h-4 text-accent group-hover/link:scale-110 transition-transform duration-300"
+                                                className="w-3 h-3 md:w-4 md:h-4 text-accent group-hover/link:scale-110 transition-transform duration-300"
                                                 fill="currentColor"
                                                 viewBox="0 0 24 24"
                                               >
@@ -272,10 +272,10 @@ const WorkExperience = () => {
                                               href={client.instagram}
                                               target="_blank"
                                               rel="noopener noreferrer"
-                                              className="p-2 rounded-full bg-black/80 hover:bg-neutral-800 transition-all duration-300 group/link"
+                                              className="p-1.5 md:p-2 rounded-full bg-black/80 hover:bg-neutral-800 transition-all duration-300 group/link"
                                             >
                                               <svg
-                                                className="w-4 h-4 text-accent group-hover/link:scale-110 transition-transform duration-300"
+                                                className="w-3 h-3 md:w-4 md:h-4 text-accent group-hover/link:scale-110 transition-transform duration-300"
                                                 fill="currentColor"
                                                 viewBox="0 0 24 24"
                                               >

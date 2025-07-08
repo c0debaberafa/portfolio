@@ -131,12 +131,12 @@ const Hero = () => {
 
           {/* Description with animated frosted glass background */}
           <div 
-            className={`backdrop-blur-md bg-white/20 rounded-2xl p-6 border border-white/30 shadow-xl transition-all duration-1000 ease-out delay-600 ${
+            className={`backdrop-blur-md bg-white/20 rounded-2xl p-4 md:p-6 border border-white/30 shadow-xl transition-all duration-1000 ease-out delay-600 ${
               isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'
             }`}
           >
             <div 
-              className={`text-base md:text-lg text-black max-w-2xl mx-auto leading-relaxed transition-all duration-1000 ease-out delay-600 font-mono h-32 flex items-start ${
+              className={`text-sm md:text-base lg:text-lg text-black max-w-2xl mx-auto leading-relaxed transition-all duration-1000 ease-out delay-600 font-mono min-h-[8rem] md:min-h-[8rem] flex items-start ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
