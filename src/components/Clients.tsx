@@ -38,7 +38,7 @@ const Clients = () => {
             Trusted by Leading Brands
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            I've had the privilege of working with amazing companies that share my passion for innovation and excellence.
+            I&apos;ve had the privilege of working with amazing companies that share my passion for innovation and excellence.
           </p>
         </div>
         

@@ -5,8 +5,8 @@ import { useEffect, useRef, useState } from 'react';
 // Declare global types for particles.js
 declare global {
   interface Window {
-    particlesJS: any;
-    pJSDom: any[];
+    particlesJS: any; // eslint-disable-line @typescript-eslint/no-explicit-any
+    pJSDom: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
   }
 }
 
@@ -174,7 +174,7 @@ const Contact = () => {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            Let's Connect
+            Let&apos;s Connect
           </h2>
           
           <p 
@@ -182,7 +182,7 @@ const Contact = () => {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            I'm always open to discussing new opportunities, creative projects, 
+            I&apos;m always open to discussing new opportunities, creative projects, 
             or just having a conversation about technology and design.
           </p>
           

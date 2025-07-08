@@ -6,8 +6,8 @@ import { useEffect, useRef, useState } from 'react';
 // Declare global types for particles.js
 declare global {
   interface Window {
-    particlesJS: any;
-    pJSDom: any[];
+    particlesJS: any; // eslint-disable-line @typescript-eslint/no-explicit-any
+    pJSDom: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
   }
 }
 
@@ -66,7 +66,8 @@ const Hero = () => {
         // Initialize particles if not already loaded
         if (window.particlesJS) {
           window.particlesJS.load('particles', '/particles.json', function() {
-            var canvas = document.querySelector(".particles-js-canvas-el");
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            const canvas = document.querySelector(".particles-js-canvas-el");
           });
         }
       }
@@ -116,7 +117,7 @@ const Hero = () => {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            Hi, I'm Rafa.
+            Hi, I&apos;m Rafa.
           </h1>
 
           {/* Tagline without frosted glass background */}
